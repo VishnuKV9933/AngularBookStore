@@ -1,1 +1,37 @@
-<p>home works!</p>
+
+<top-bar></top-bar>
+
+<div class="bg-gray-100 h-" >
+    <div class="container mx-auto p-4 flex flex-wrap gap-12 items-center justify-center">
+
+      <!-- Product Card -->
+      <div style="width:250px" class="bg-white rounded-lg shadow-lg p-4 w-48 " *ngFor="let product of books">
+        <!-- Product Image -->
+        <img [src]="product.image" alt="Product Image" class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg">
+  
+        <!-- Product Title -->
+        <h2 class="text-l font-semibold mb-2 ">{{ product.title | firstTwoWords }}</h2>
+  
+        <!-- Product Description -->
+        <!-- <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nulla eu ligula consectetur euismod at ut erat.</p> -->
+  
+        <!-- Product Price -->
+        <p class="text-lg font-bold mb-4">$19.99</p>
+  
+        <!-- Add to Cart Button -->
+        <div class="w-full flex items-center justify-center flex-wrap gap-2">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow" (click)="addToCart(product)" >
+              Add to Cart
+            </button>
+            <button class="bg-orange-500 hover:bg-orange-600 text-white  p-2 rounded-lg shadow">
+                View More
+              </button>
+        </div>
+      </div>
+
+
+      
+
+
+    </div>
+</div>
