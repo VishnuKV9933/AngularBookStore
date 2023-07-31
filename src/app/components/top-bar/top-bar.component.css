@@ -1,0 +1,14 @@
+
+
+.cartCount{
+    position: absolute;
+    left: 45px;
+    top: -5px;
+    width: fit-content;
+    height: fit-content;
+    color: rgb(69, 243, 69);
+}
+
+.cart{
+position: relative;
+}

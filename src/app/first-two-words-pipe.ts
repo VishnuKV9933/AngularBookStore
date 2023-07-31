@@ -7,7 +7,7 @@ export class FirstTwoWordsPipe implements PipeTransform {
   transform(value: string): string {
     const words = value.split(' ');
     if (words.length >= 2) {
-      return words.slice(0, 3).join(' ');
+      return words.slice(0, 2).join(' ');
     }
     return value;
   }

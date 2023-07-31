@@ -8,6 +8,8 @@ import { HomeComponent } from './Pages/home/home.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FirstTwoWordsPipe } from './first-two-words-pipe';
 import { CartComponent } from './Pages/cart/cart.component';
+import { CommonModule } from '@angular/common'; 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { CartComponent } from './Pages/cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

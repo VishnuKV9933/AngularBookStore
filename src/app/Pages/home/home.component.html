@@ -16,14 +16,17 @@
         <!-- <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nulla eu ligula consectetur euismod at ut erat.</p> -->
   
         <!-- Product Price -->
-        <p class="text-lg font-bold mb-4">$19.99</p>
+        <p class="text-lg font-bold mb-4"> {{ formatPrice(product.price) | currency : "INR" }}</p>
   
         <!-- Add to Cart Button -->
         <div class="w-full flex items-center justify-center flex-wrap gap-2">
-            <button class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow" (click)="addToCart(product)" >
+            <button *ngIf="!isAddedToCart(product)" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow" (click)="addToCart(product)" >
               Add to Cart
             </button>
-            <button class="bg-orange-500 hover:bg-orange-600 text-white  p-2 rounded-lg shadow">
+            <button *ngIf="isAddedToCart(product)" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg shadow" (click)="removeFromCart(product)" >
+              Remove 
+            </button>
+            <button class="bg-green-500 hover:bg-green-600 text-white  p-2 rounded-lg shadow">
                 View More
               </button>
         </div>
