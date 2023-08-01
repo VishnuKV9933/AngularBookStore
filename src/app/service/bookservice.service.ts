@@ -45,7 +45,7 @@ export class BookserviceService {
   getProducts(): Observable<Product> {
     try {
       return this.http.get<Product>(
-        'https://api.itbook.store/1.0/search/mongodb'
+        '/search/mongodb'
       );
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ export class BookserviceService {
 
   getProductDetails(id:string):Observable<ProductDetails>{
     try {
-      return this.http.get<ProductDetails>(`https://api.itbook.store/1.0/books/${id}`)
+      return this.http.get<ProductDetails>(`/books/${id}`)
     } catch (error) {
       console.log(error);
       

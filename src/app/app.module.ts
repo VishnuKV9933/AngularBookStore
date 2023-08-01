@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/login/login.component';
@@ -11,6 +11,7 @@ import { CartComponent } from './Pages/cart/cart.component';
 import { CommonModule, DatePipe } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './Pages/details/details.component';
+import { AuthInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,9 @@ import { DetailsComponent } from './Pages/details/details.component';
     CommonModule,
     FormsModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
