@@ -1,8 +1,8 @@
 <top-bar></top-bar>
 
 <div
-  style="background-color: #ebe8f8"
-  class="w-full h-[535px] flex justify-center py-10"
+  style="background-color: #ebe8f8; padding-top : 10px;padding-bottom : 10px;"
+  class="w-full h-[470px] flex justify-center py-10"
 >
   <div style="width: 80%" class="bg-white rounded-3xl flex overflow-hidden">
     <div class="w-2/3 p-4">
@@ -19,12 +19,12 @@
               class="w-[50px] h-[100px] flex justify-start items-center"
             >
               <div>
-                <img [src]="item.image" class="w-20 h-28 ml-3" alt="" />
+                <img [src]="item.image" class="w-20 h-28 ml-3" alt="" [routerLink]="'/productdetails/' + item.isbn13"  />
                 <div class="ml-6 text-amber-500">
                   {{ formatPrice(item.price) | currency : "INR" }}
                 </div>
               </div>
-              <div class="break-words w-28 text-teal-900 font-bold">
+              <div class="break-words w-28 text-teal-900 font-bold" [routerLink]="'/productdetails/' + item.isbn13" >
                 {{ item.title | firstTwoWords }}
               </div>
             </div>

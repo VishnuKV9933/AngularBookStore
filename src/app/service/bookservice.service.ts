@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../CustomTypes/Product';
 import { Book } from '../CustomTypes/book';
+import { ProductDetails } from '../CustomTypes/product-details';
 
 @Injectable({
   providedIn: 'root',
@@ -50,6 +51,16 @@ export class BookserviceService {
       console.log(error);
 
       return of();
+    }
+  }
+
+  getProductDetails(id:string):Observable<ProductDetails>{
+    try {
+      return this.http.get<ProductDetails>(`https://api.itbook.store/1.0/books/${id}`)
+    } catch (error) {
+      console.log(error);
+      
+      return of()
     }
   }
 

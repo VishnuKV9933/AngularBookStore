@@ -8,8 +8,9 @@ import { HomeComponent } from './Pages/home/home.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FirstTwoWordsPipe } from './first-two-words-pipe';
 import { CartComponent } from './Pages/cart/cart.component';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule, DatePipe } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
+import { DetailsComponent } from './Pages/details/details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     TopBarComponent,
     FirstTwoWordsPipe,
     CartComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

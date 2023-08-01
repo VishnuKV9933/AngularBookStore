@@ -41,7 +41,15 @@ export class CartService {
 
   removeFromCart(book: Book): Observable<Book[]> {
     try {
-      let index: number = this.cartItems.indexOf(book);
+      let array: Book[] = this.cartItems;
+      let index: number = (function () {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].isbn13 === book.isbn13) {
+            return i;
+          }
+        }
+        return -1;
+      })();
 
       if (index !== -1) {
         this.cartItems.splice(index, 1);

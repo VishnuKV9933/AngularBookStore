@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   addToCart(book: Book): void {
     try {
       this.cartService.addToCart(book).subscribe((data) => {
-        console.log(data);
         this.CartBooks = data;
       });
     } catch (error) {
@@ -43,7 +42,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           elem.publishDate = new Date();
           return elem;
         });
-        console.log(this.books);
       });
     } catch (error) {
       console.log(error);
@@ -51,6 +49,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
   removeFromCart(book: Book) {
     try {
+      console.log("hsi");
+      
       this.cartService.removeFromCart(book).subscribe((data) => {
         this.CartBooks = data;
       });
@@ -73,10 +73,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     try {
       this.CartBooks = this.cartService.cartItems;
 
-      this.authService.isLogedIn().subscribe((value: boolean) => {
-        if (value) return;
-        else this.router.navigate(['/']);
-      });
+      // this.authService.isLogedIn().subscribe((value: boolean) => {
+      //   if (value) return;
+      //   else this.router.navigate(['/']);
+      // });
     } catch (error) {
       console.log(error);
     }
