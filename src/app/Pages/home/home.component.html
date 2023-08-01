@@ -10,23 +10,23 @@
         <img [src]="product.image" alt="Product Image" class="w-40 h-40 object-cover mx-auto mb-4 rounded-lg">
   
         <!-- Product Title -->
-        <h2 class="text-l font-semibold mb-2 ">{{ product.title | firstTwoWords }}</h2>
+        <h2 class="text-l font-semibold mb-2 text-teal-900">{{ product.title | firstTwoWords }}</h2>
   
         <!-- Product Description -->
         <!-- <p class="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nulla eu ligula consectetur euismod at ut erat.</p> -->
   
         <!-- Product Price -->
-        <p class="text-lg font-bold mb-4"> {{ formatPrice(product.price) | currency : "INR" }}</p>
+        <p class="text-lg font-bold mb-4 text-stone-500"> {{ formatPrice(product.price) | currency : "INR" }}</p>
   
         <!-- Add to Cart Button -->
-        <div class="w-full flex items-center justify-center flex-wrap gap-2">
-            <button *ngIf="!isAddedToCart(product)" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow" (click)="addToCart(product)" >
+        <div class="w-full flex items-center justify-center flex-wrap gap-2 ">
+            <button id="addToCart" *ngIf="!isAddedToCart(product)" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg shadow" (click)="addToCart(product)" >
               Add to Cart
             </button>
             <button *ngIf="isAddedToCart(product)" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg shadow" (click)="removeFromCart(product)" >
               Remove 
             </button>
-            <button class="bg-green-500 hover:bg-green-600 text-white  p-2 rounded-lg shadow">
+            <button [routerLink]="'/productdetails/' + product.isbn13" class="bg-green-500 hover:bg-green-600 text-white  p-2 rounded-lg shadow">
                 View More
               </button>
         </div>
